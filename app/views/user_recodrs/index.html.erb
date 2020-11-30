@@ -1,0 +1,72 @@
+<%= form_with(url: root_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "食品名を入力", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
+<div class="contents row">
+  <% if !(params[:keyword]) %>
+    <%= "↑↑ 検索したい食品名を入力してね! (≧▽≦)b ↑↑" %>
+  <% elsif (params[:keyword]) == "" %>
+    <%= "検索欄が空白です" %>
+  <% elsif @foods.length != 0 %>
+    <% @foods.each do |food| %>
+      <td>
+      <br>
+        <li>
+          <%= food.food_name %>、
+          <%= "#{food.g}g" %>、
+          <%= "#{food.kcal}kcal"%>
+        </li>
+    <% end %>
+    <br>
+    <br>
+    <% if !user_signed_in? %>
+      <%= "新規登録、ログインをしてメモ機能を使ってみよう！！" %>
+      <br>
+      <br>
+      <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+      <%= link_to "ログイン", new_user_session_path, class: "post" %>
+    <% end %>
+    <br>
+    <%= link_to '戻る', root_path %>
+  <% else %>
+    <%= "すいませんm(_ _)m 該当するデータがありません" %>
+    <br>
+    <br>
+    <%= link_to '戻る', root_path %>
+  <% end %>
+</div>
+
+
+<% if user_signed_in? %>
+<%= form_with model: @user_recodr, url: root_path,  class: 'form' do |f| %>
+  <%= f.label :検索結果, class: 'lavel' %>
+  <%= f.text_field :food_name, class: 'text-input' %>
+  <%= f.text_field :kcal, class: 'text-input' %>
+  <%= f.text_field :g, class: 'text-input' %>
+  
+  <%= f.label :日付を選択, class: 'lavel' %>
+  <%= f.date_field :date, class: 'date-select' %>
+
+  <%= f.submit '保存' %>
+<% end %>
+
+<div class=calendar>
+  <% @week_days.each do |day| %>
+    <div class='item'>
+      <div class='date'>
+        <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+      </div>
+      <ul class='content'>
+      <% if day[:user_recodrs].length != 0 %>
+        <% day[:user_recodrs].each do |user_recodr| %>
+          <li class='plan-list'>・<%= user_recodr %></li>
+        <% end %>
+      <% end %>
+
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
