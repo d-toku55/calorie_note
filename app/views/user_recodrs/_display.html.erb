@@ -1,0 +1,38 @@
+<div class="contents row">
+  <% if !(params[:keyword]) %>
+    <%= "↑↑ 検索したい食品名を入力してね! ↑↑" %>
+  <% elsif (params[:keyword]) == "" %>
+    <%= "検索欄が空白です" %>
+  <% elsif @foods.length != 0 %>
+    <% @foods.each do |food| %>
+      <td>
+      <br>
+        <li>
+          <%= food.food_name %>、
+          <%= "#{food.g}g" %>、
+          <%= "#{food.kcal}kcal"%>
+        </li>
+    <% end %>
+    <br>
+    <% if !user_signed_in? %>
+      <%= "新規登録、ログインをしてメモ機能を使ってみよう！！" %>
+      <br>
+      <%= link_to "新規登録", new_user_registration_path, class: "posts" %>
+      <%= link_to "ログイン", new_user_session_path, class: "posts" %>
+    <% end %>
+    <br>
+    <% if user_signed_in? %>
+      <%= link_to '戻る', user_recodr_user_path %>
+    <% else %>
+      <%= link_to '戻る', root_path %>
+    <% end %>
+  <% else %>
+    <%= "すいませんm(_ _)m 該当するデータがありません" %>
+    <br>
+    <% if user_signed_in? %>
+      <%= link_to '戻る', user_recodr_user_path %>
+    <% else %>
+      <%= link_to '戻る', root_path %>
+    <% end %>
+  <% end %>
+</div>
