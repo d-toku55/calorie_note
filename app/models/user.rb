@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :user_recodrs
-
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
-  validates :encrypted_password, presence: true
-  validates :nickname,           presence: true
-  validates :gender,             presence: true
+  
+  with_options presence: true do
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
+    validates :encrypted_password
+    validates :nickname
+    validates :gender
+  end
 end
