@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   def show
     get_week
-    user = User.find(params[:id])
-    @users = User.includes(:user)
+    @users = User.includes(:user_recodr)
     @nickname = current_user.nickname
-    @user_recodrs = current_user.user_recodrs
+    @user_recodrs = current_user.user_recodrs.order(created_at: :desc)
     @foods = Food.search(params[:keyword])
   end
 

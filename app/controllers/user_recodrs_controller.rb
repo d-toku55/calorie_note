@@ -10,16 +10,4 @@ class UserRecodrsController < ApplicationController
     @foods = Food.search(params[:keyword])
   end
 
-  def create
-  end
-
-  def show
-  end
-
-  private
-
-  def food_params
-    params.require(:food).permit(:food_name, :kcal, :g)
-  end
-
 end

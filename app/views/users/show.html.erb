@@ -9,7 +9,7 @@
 </div>
 
 <%= form_with(url: user_recodr_user_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "食品名を入力", class: "search-input" %>
+  <%= form.text_field :keyword, placeholder: "例) はんぺん", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
 
@@ -19,12 +19,12 @@
   <%= form_with model: @user_recodr, url: user_recodr_users_path, class: 'form' do |f| %>
   <%= f.label :メモ, class: 'lavel' %>
   <br>
-  <%= f.text_field :food_name, placeholder: "食品名を入力", class: 'text-input' %>
+  <%= f.text_field :food_name, placeholder: "食品名や料理名を入力", class: 'text-input' %>
   <%= f.text_field :g, placeholder: "gを入力", class: 'text-input' %>
   <%= f.text_field :kcal, placeholder: "kcalを入力", class: 'text-input', id:"kcal" %>
   <br>
   <br>
-  <%= f.label :※必ず今日の日付を選択してください, class: 'lavel' %>
+  <%= f.label :※必ず日付を選択してください, class: 'lavel' %>
   <br>
   <%= f.date_field :date, class: 'date-select' %>
   <%= f.submit '保存' %>

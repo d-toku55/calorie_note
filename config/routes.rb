@@ -4,12 +4,11 @@ Rails.application.routes.draw do
 
   root to: "user_recodrs#index"
 
-  resources :user_recodrs, only: [:index, :show, :create] do
+  resources :user_recodrs, only: :index do
     collection do
       get 'search'
     end
     resources :users, only: [:show, :create]
   end
   
-
 end
