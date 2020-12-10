@@ -4,3 +4,9 @@ ja:
      user:
        nickname: ニックネーム
        gender: 性別
+     user_recodr:
+       date: 日付
+       food_name: 食品名
+       kcal: カロリー
+       g: 数字以外
+       user: 数字
