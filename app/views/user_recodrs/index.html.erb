@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <div class='user-top'>
     <%= "ようこそ!! #{current_user.nickname}さん" %>
-    <%= link_to "マイページへ", "/user_recodrs/user_recodr_id/users/#{current_user.id}" %>
+    <b><%= link_to "マイページへ", "/user_recodrs/user_recodr_id/users/#{current_user.id}" %></b>
   </div>
 <% else %>
   <%= form_with(url: root_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "例) はんぺん", class: "search-input" %>
+    <%= form.text_field :keyword, placeholder: "検索 例) カツ丼", class: "search-input" %>
     <%= form.submit "検索", class: "search-btn" %>
   <% end %>
   <%= render partial: "display" %>

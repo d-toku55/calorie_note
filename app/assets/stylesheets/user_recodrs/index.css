@@ -1,0 +1,8 @@
+.user-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7vh;
+  font-size: 30px;
+  color: rgb(245, 237, 237);
+}

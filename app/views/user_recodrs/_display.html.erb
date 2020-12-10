@@ -1,6 +1,6 @@
-<div class="contents row">
+<div class="display-screen">
   <% if !(params[:keyword]) %>
-    <%= "↑↑ 検索したい食品名を入力してね! ↑↑" %>
+    <%= "↑↑ 検索したい食品名や料理名を入力してね! ↑↑" %>
   <% elsif (params[:keyword]) == "" %>
     <%= "検索欄が空白です" %>
   <% elsif @foods.length != 0 %>

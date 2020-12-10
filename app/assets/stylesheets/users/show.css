@@ -1,0 +1,100 @@
+.user-gender {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  font-size: 3vw;
+  color: rgb(255, 255, 255);
+}
+
+.kcal{
+  font-size: 5vw;
+  color: rgb(245, 63, 63);
+}
+
+.search-form {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.search-form .search-input {
+  width: 30%;
+  margin-right: 30px;
+}
+
+.search-form .search-btn {
+  width: 10%;
+}
+
+.form {
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4vh;
+}
+
+.lavel {
+  font-size: 2vh;
+  color: rgb(255, 255, 255);
+}
+
+.text-input {
+  height: 4vh;
+  width: 15vw;
+  margin: 0 2vw;
+}
+
+.date-select {
+  justify-content: center;
+  align-items: center;
+  height: 4vh;
+  width: 13vw;
+  margin: 0 2vw;
+}
+
+.calendar {
+  width: 100vw;
+  margin-top: 0.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.user-nickname {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  font-size: 3vw;
+  color: rgb(255, 255, 255);
+}
+
+.note {
+  margin: 0.5vw;
+  border: medium solid rgb(0, 0, 0);
+  width: 60vw;
+  height: auto;
+  background-color: rgb(246, 253, 255);
+}
+
+.date {
+  height: 5vh;
+  display: flex;
+  font-size: 3vh;
+  align-items: center;
+  justify-content: center;
+  border-bottom: medium solid rgb(0, 0, 0);
+}
+
+.content {
+  min-height: 25vh;
+  padding: 5px;
+  white-space: nowrap;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.food-data {
+  margin: 1vh 0;
+  font-size: 2vw;
+}

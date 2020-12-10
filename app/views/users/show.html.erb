@@ -1,15 +1,15 @@
-<div class='user'>
-  <%= "1日の摂取カロリーの目安" %>
+<div class='user-gender'>
+  <p>1日の摂取カロリーの目安
   <br>
   <% if current_user.gender == 0 %>
-    <%= "男性は約2,650kcalです" %>
+    男性は約<span class='kcal'>2,650</span>kcalです</p>
   <% else %>
-    <%= "女性は約1,900 ~ 2,000kcalです" %>
+    女性は約<span class='kcal'>1,900 ~ 2,000</span>kcalです</p>
   <% end %>
 </div>
 
 <%= form_with(url: user_recodr_user_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "例) はんぺん", class: "search-input" %>
+  <%= form.text_field :keyword, placeholder: "検索 例) カツ丼", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
 
@@ -30,10 +30,10 @@
   <%= f.submit '保存' %>
 <% end %>
 
-<div class='user'><%= "#{@nickname}さんのメモ" %></div>
+<div class='user-nickname'><%= "#{@nickname}さんのメモ" %></div>
 <div class=calendar>
   <% @week_days.each do |day| %>
-    <div class='item'>
+    <div class='note'>
       <div class='date'>
         <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
       </div>
