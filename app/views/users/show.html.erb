@@ -31,26 +31,26 @@
 <% end %>
 
 <div class='user-nickname'><%= "#{@nickname}さんのメモ" %></div>
-<div class=calendar>
-  <% @week_days.each do |day| %>
-    <div class='note'>
-      <div class='date'>
-        <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
-      </div>
-      <ul class='content'>
-      <% if @user_recodrs.length != 0 %>
-        <% @user_recodrs.each do |user_recodr| %>
-          <li class='food-data'>・
-            <%= user_recodr.date %>
-            <br>
-            <%= user_recodr.food_name %>
-            <%= "・#{user_recodr.kcal}kcal" %>
-            <%= "・#{user_recodr.g}g" %>
-          </li>
-        <% end %>
+  <div class=calendar>
+    <% @week_days.each do |day| %>
+      <div class='note'>
+        <div class='date'>
+          <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+        </div>
+        <ul class='content'>
+          <% if @user_recodrs.length != 0 %>
+            <% @user_recodrs.each do |user_recodr| %>
+              <li class='food-data'>・
+                <%= user_recodr.date %>
+                <br>
+                <%= user_recodr.food_name %>
+                <%= "・#{user_recodr.kcal}kcal" %>
+                <%= "・#{user_recodr.g}g" %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-<% end %>
+    <% end %>
+  </div>
 </div>
