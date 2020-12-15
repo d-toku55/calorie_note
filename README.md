@@ -76,14 +76,14 @@
 
 # 実装した機能についてのGIFと説明
 ## ユーザー登録機能です。ニックネーム、Email、パスワード、パスワード確認を各欄に入力し、性別を選択して登録を押します。
-![新規登録](https://user-images.githubusercontent.com/72972890/101333827-684ecf80-38ba-11eb-85cb-81bcc17715d7.gif)
+![新規登録3](https://user-images.githubusercontent.com/72972890/102178225-656e6300-3ee8-11eb-86df-993502f6141d.gif)
 
 ## 検索欄にカロリーを知りたい食品名や料理名を検索欄に入力し検索を押すと下部に検索結果の「カロリー、g」が表示されます。
 ### 注意: 食品データ、料理名データは合わせて100件しか入っておりません。
-![検索機能](https://user-images.githubusercontent.com/72972890/101334564-620d2300-38bb-11eb-949a-a36e1be41b84.gif)
+![検索3](https://user-images.githubusercontent.com/72972890/102177439-eaf11380-3ee6-11eb-89dc-01b64670700c.gif)
 
 ## 検索結果で表示された「食品名や料理名、g、kcal」をメモの下部にある入力欄にそれぞれ入力し保存を押すとメモ欄に入力されたデータが保存されます。
-![メモ機能](https://user-images.githubusercontent.com/72972890/101335137-2161d980-38bc-11eb-8b02-d5c1cdb1f93a.gif)
+![メモ3](https://user-images.githubusercontent.com/72972890/102177837-aade6080-3ee7-11eb-9c1c-c2035fd70e39.gif)
 
 # 実装予定の機能
 ## 編集機能と削除機能
