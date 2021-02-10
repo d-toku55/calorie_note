@@ -1,9 +1,10 @@
 <div class="display-screen">
   <% if !(params[:keyword]) %>
-    <%= "↑↑ 検索したい食品名や料理名を入力してね! ↑↑" %>
+    <%= "↑↑ 検索したい食品名を入力してね! ↑↑" %>
   <% elsif (params[:keyword]) == "" %>
     <%= "検索欄が空白です" %>
   <% elsif @foods.length != 0 %>
+<div style="width:80vw;height:30vh;overflow:auto;">
     <% @foods.each do |food| %>
       <td>
       <br>
@@ -13,6 +14,7 @@
           <%= "#{food.kcal}kcal"%>
         </li>
     <% end %>
+</div>
     <br>
     <% if !user_signed_in? %>
       <%= "新規登録、ログインをしてメモ機能を使ってみよう！！" %>
@@ -22,6 +24,19 @@
     <% end %>
     <br>
     <% if user_signed_in? %>
+    <%= form_with model: @user_recodr, url: user_recodr_users_path, class: 'form' do |f| %>
+      <%#= render 'devise/shared/error_messages', model: f.object %>
+      <%= f.label :メモ, class: 'lavel' %>
+      <br>
+      <%= f.text_field :food_name, placeholder: "食品名や料理名を入力", class: 'text-input' %>
+      <%= f.text_field :g, placeholder: "gを入力", class: 'text-input' %>
+      <%= f.text_field :kcal, placeholder: "kcalを入力", class: 'text-input', id:"kcal" %>
+      <br>
+      <%= f.label :※必ず日付を選択してください, class: 'lavel' %>
+      <br>
+      <%= f.date_field :date, class: 'date-select' %>
+      <%= f.submit '保存' %>
+    <% end %>
       <%= link_to '戻る', user_recodr_user_path %>
     <% else %>
       <%= link_to '戻る', root_path %>

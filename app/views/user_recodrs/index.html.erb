@@ -5,7 +5,7 @@
   </div>
 <% else %>
   <%= form_with(url: root_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "検索 例) カツ丼", class: "search-input" %>
+    <%= form.text_field :keyword, placeholder: "例) カツ丼", class: "search-input" %>
     <%= form.submit "検索", class: "search-btn" %>
   <% end %>
   <%= render partial: "display" %>

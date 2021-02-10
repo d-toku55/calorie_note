@@ -9,48 +9,32 @@
 </div>
 
 <%= form_with(url: user_recodr_user_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "検索 例) カツ丼", class: "search-input" %>
+  <%= form.text_field :keyword, placeholder: "例) カツ丼", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
 
 <%= render partial: "user_recodrs/display" %>
 
-<% if user_signed_in? %>
-  <%= form_with model: @user_recodr, url: user_recodr_users_path, class: 'form' do |f| %>
-  <%= f.label :メモ, class: 'lavel' %>
-  <br>
-  <%= f.text_field :food_name, placeholder: "食品名や料理名を入力", class: 'text-input' %>
-  <%= f.text_field :g, placeholder: "gを入力", class: 'text-input' %>
-  <%= f.text_field :kcal, placeholder: "kcalを入力", class: 'text-input', id:"kcal" %>
-  <br>
-  <br>
-  <%= f.label :※必ず日付を選択してください, class: 'lavel' %>
-  <br>
-  <%= f.date_field :date, class: 'date-select' %>
-  <%= f.submit '保存' %>
-<% end %>
-
 <div class='user-nickname'><%= "#{@nickname}さんのメモ" %></div>
-  <div class=calendar>
-    <% @week_days.each do |day| %>
-      <div class='note'>
-        <div class='date'>
-          <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
-        </div>
-        <ul class='content'>
-          <% if @user_recodrs.length != 0 %>
-            <% @user_recodrs.each do |user_recodr| %>
-              <li class='food-data'>・
-                <%= user_recodr.date %>
-                <br>
-                <%= user_recodr.food_name %>
-                <%= "・#{user_recodr.kcal}kcal" %>
-                <%= "・#{user_recodr.g}g" %>
-              </li>
-            <% end %>
+<div class=calendar>
+  <% @week_days.each do |day| %>
+    <div class='note'>
+      <div class='date'>
+        <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+      </div>
+      <ul class='content'>
+        <% if @user_recodrs.length != 0 %>
+          <% @user_recodrs.each do |user_recodr| %>
+            <li class='food-data'>
+              <%= user_recodr.date %>
+              <br>
+              <%= user_recodr.food_name %>
+              <%= "・#{user_recodr.kcal}kcal" %>
+              <%= "・#{user_recodr.g}g" %>
+            </li>
           <% end %>
-        </ul>
-      <% end %>
-    <% end %>
-  </div>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
